@@ -4,5 +4,8 @@ console.log(process.cwd());
 
 export default defineConfig({
   test: {
+	  cache: {
+		dir: '.vitest'
+	  }
   },
 });
