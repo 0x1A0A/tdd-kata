@@ -11,6 +11,7 @@ import {
   countVowels,
   endingZeros,
   firstWord,
+  longestSubstr,
   longestWord,
   maxDigit,
   replaceFirst,
@@ -169,5 +170,19 @@ describe("Sort", () => {
     expect(sortExceptZero([5, 4, 3, 1])).toEqual([1, 3, 4, 5]);
     expect(sortExceptZero([5, 0, 3, 1])).toEqual([1, 0, 3, 5]);
     expect(sortExceptZero([5, 6, 0, 7, 10])).toEqual([5, 6, 0, 7, 10]);
+  });
+});
+
+describe("Longest substring of unique character", () => {
+  test("abc return 3", () => {
+    expect(longestSubstr("abc")).toBe(3);
+  });
+  test("empty return 0", () => {
+    expect(longestSubstr("")).toBe(0);
+  });
+  test("only count for consicutive", () => {
+    expect(longestSubstr("aaaaab")).toBe(2);
+    expect(longestSubstr("abccbaxxx")).toBe(4);
+    expect(longestSubstr("dvdf")).toBe(3);
   });
 });

@@ -135,6 +135,17 @@ export function countVowels(s: string) {
 }
 
 export function sortExceptZero(array: number[]) {
-  const sorted = array.filter((v) => v).sort((a,b)=> +a-+b);
+  const sorted = array.filter((v) => v).sort((a, b) => +a - +b);
   return array.map((v) => (v ? sorted.shift() : v));
+}
+
+export function longestSubstr(str: string): number {
+  let queue: string[] = [];
+  let max = 0;
+  str.split("").forEach((s) => {
+    while (queue.includes(s)) queue.shift();
+    queue.push(s);
+    max = Math.max(max, queue.length);
+  });
+  return Math.max(max, queue.length);
 }
