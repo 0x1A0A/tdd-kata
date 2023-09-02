@@ -149,3 +149,18 @@ export function longestSubstr(str: string): number {
   });
   return Math.max(max, queue.length);
 }
+
+export function longestCommonPrefix(texts: string[]): string {
+  let prefix = texts[0];
+  let i = 1;
+  while (texts[i]) {
+    let c = 0;
+    while (texts[i][c]) {
+      if (texts[i][c] != prefix[c]) break;
+      c++;
+    }
+    prefix = prefix.substring(0, c);
+    i++;
+  }
+  return prefix || "";
+}

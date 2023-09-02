@@ -11,6 +11,7 @@ import {
   countVowels,
   endingZeros,
   firstWord,
+  longestCommonPrefix,
   longestSubstr,
   longestWord,
   maxDigit,
@@ -184,5 +185,24 @@ describe("Longest substring of unique character", () => {
     expect(longestSubstr("aaaaab")).toBe(2);
     expect(longestSubstr("abccbaxxx")).toBe(4);
     expect(longestSubstr("dvdf")).toBe(3);
+  });
+});
+
+describe("Longest common prefix", () => {
+  test("return whole string if only one string provided", () => {
+    expect(longestCommonPrefix(["hello"])).toEqual("hello");
+  });
+  test("return empty string when no string provided", () => {
+    expect(longestCommonPrefix([""])).toEqual("");
+    expect(longestCommonPrefix([])).toEqual("");
+  });
+  test("find common prefix", () => {
+    expect(longestCommonPrefix(["hello", "hell"])).toEqual("hell");
+    expect(longestCommonPrefix(["hello", "hell", "home"])).toEqual("h");
+  });
+  test("return empty string if no common prefix at all", () => {
+    expect(longestCommonPrefix(["hello", "hell", "world", "angel"])).toEqual(
+      "",
+    );
   });
 });
