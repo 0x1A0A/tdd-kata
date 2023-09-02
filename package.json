@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx vitest"
+    "test": "npx vitest",
+    "test:once": "npx vitest run --logHeapUsage",
+    "test:cov": "npx vitest run --coverage --logHeapUsage"
   },
   "keywords": [],
   "author": "",
