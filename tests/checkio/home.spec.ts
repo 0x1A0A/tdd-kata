@@ -1,5 +1,9 @@
 import { describe, test, expect } from "vitest";
-import { betweenMarkers, biggerPrice } from "../../src/checkio/home";
+import {
+  allPermutation,
+  betweenMarkers,
+  biggerPrice,
+} from "../../src/checkio/home";
 
 describe("Bigger price", () => {
   test("found the bigest price", () => {
@@ -57,5 +61,33 @@ describe("Between markers", () => {
 
   test("return from start markers to the end when no end markers", () => {
     expect(betweenMarkers("What is >apple<", ">", "")).toEqual("apple<");
+  });
+});
+
+describe("all permutation", () => {
+  test("return same string if it only has one character", () => {
+    expect(allPermutation("a")).toEqual(["a"]);
+  });
+  test("return all string permutation", () => {
+    expect(allPermutation("ab")).toEqual(["ab", "ba"]);
+    expect(allPermutation("abc")).toEqual([
+      "abc",
+      "acb",
+      "bac",
+      "bca",
+      "cab",
+      "cba",
+    ]);
+  });
+  test("can handle string with the same element", () => {
+    expect(allPermutation("aa")).toEqual(["aa", "aa"]);
+    expect(allPermutation("aab")).toEqual([
+      "aab",
+      "aab",
+      "aba",
+      "aba",
+      "baa",
+      "baa",
+    ]);
   });
 });
