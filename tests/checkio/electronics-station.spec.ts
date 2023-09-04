@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
 import {
+  removeAfterK,
   sortByExt,
   verifyAnagram,
 } from "../../src/checkio/electronics-station";
@@ -45,5 +46,13 @@ describe("Sort by file extension", () => {
   test("sort file with no name first", () => {
     expect(sortByExt([".a", "c.a", "a.a"])).toEqual([".a", "a.a", "c.a"]);
     expect(sortByExt(["c.a", ".a", "a.a"])).toEqual([".a", "a.a", "c.a"]);
+  });
+});
+
+describe("When K is enough", () => {
+  test("only allow for k occcurence of each element", () => {
+    expect(removeAfterK([1, 1, 1, 1, 1], 2)).toEqual([1, 1]);
+    expect(removeAfterK([1, 1, 1, 1, 1], 4)).toEqual([1, 1, 1, 1]);
+    expect(removeAfterK([1, 2, 2, 3, 4], 1)).toEqual([1, 2, 3, 4]);
   });
 });
