@@ -3,6 +3,7 @@ import {
   removeAfterK,
   sortByExt,
   verifyAnagram,
+  wordsOrder,
 } from "../../src/checkio/electronics-station";
 
 describe("Verify anagram", () => {
@@ -54,5 +55,16 @@ describe("When K is enough", () => {
     expect(removeAfterK([1, 1, 1, 1, 1], 2)).toEqual([1, 1]);
     expect(removeAfterK([1, 1, 1, 1, 1], 4)).toEqual([1, 1, 1, 1]);
     expect(removeAfterK([1, 2, 2, 3, 4], 1)).toEqual([1, 2, 3, 4]);
+  });
+});
+
+describe("Words order", () => {
+  test("words appear in order", () => {
+    expect(wordsOrder("a b c d", ["a", "b"])).toBeTruthy();
+    expect(wordsOrder("a b c d", ["b", "a"])).toBeFalsy();
+    expect(wordsOrder("hi world am here", ["world", "here"])).toBeTruthy();
+  });
+  test("return false if sequence contain the same word", () => {
+    expect(wordsOrder("hi world am here", ["world", "world"])).toBeFalsy();
   });
 });

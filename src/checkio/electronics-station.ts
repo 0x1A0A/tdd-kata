@@ -59,3 +59,14 @@ export function removeAfterK(arr: number[], k: number): number[] {
     return 0;
   });
 }
+
+export function wordsOrder(str: string, arr: string[]): boolean {
+  const words = str.split(" ");
+  while (words.length && arr.length) {
+    const word = words.shift();
+    const target = arr.shift();
+    if (target && arr.includes(target)) return false;
+    if (target && word != target) arr.unshift(target);
+  }
+  return arr.length == 0;
+}
