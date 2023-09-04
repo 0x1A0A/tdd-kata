@@ -13,3 +13,8 @@ export function sumByType(arr: (string | number)[]) {
     ["", 0],
   );
 }
+
+export function commonWords(line1: string, line2: string): string {
+  const arr = [line1.split(","), line2.split(",")];
+  return arr[0].filter((a) => arr[1].includes(a)).sort().join(",");
+}
