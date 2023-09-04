@@ -1,30 +1,6 @@
 const char = (c: string) => c.charCodeAt(0);
 const isNumber = (c: string) => char(c) >= char("0") && char(c) <= char("9");
 
-const passwordRule = [
-  (s: string) => s.length > 6,
-  (s: string) => s.split("").some(isNumber),
-  (s: string) => s.split("").every(isNumber),
-  (s: string) => s.length > 9,
-  (s: string) => s.match(/password/gi) != null,
-  (s: string) =>
-    Object.keys(
-      s.split("").reduce((acc: { [key: string]: boolean }, c) => {
-        acc[c] = true;
-        return acc;
-      }, {}),
-    ).length >= 3,
-];
-
-export function acceptablePassword(text: string) {
-  return passwordRule[0](text) && passwordRule[1](text);
-}
-
-export function acceptablePasswordIm(text: string) {
-  if (passwordRule[2](text)) return false;
-  return passwordRule[0](text) && passwordRule[1](text);
-}
-
 export function backwardString(str: string) {
   return str.split("").reverse().join("");
 }
@@ -105,25 +81,42 @@ export function endingZeros(a: number) {
   return count;
 }
 
+const passwordRule = [
+  (s: string) => s.length > 6,
+  (s: string) => s.split("").some(isNumber),
+  (s: string) => s.split("").every(isNumber),
+  (s: string) => s.length > 9,
+  (s: string) => s.match(/password/gi) != null,
+  (s: string) =>
+    Object.keys(
+      s.split("").reduce((acc: { [key: string]: boolean }, c) => {
+        acc[c] = true;
+        return acc;
+      }, {}),
+    ).length >= 3,
+];
+
+export function acceptablePassword(text: string) {
+  return passwordRule[0](text) && passwordRule[1](text);
+}
+
+export function acceptablePasswordIm(text: string) {
+  if (passwordRule[2](text)) return false;
+  return acceptablePassword(text);
+}
 export function acceptablePasswordIV(text: string) {
   if (passwordRule[3](text)) return true;
-  if (passwordRule[2](text)) return false;
-  return passwordRule[0](text) && passwordRule[1](text);
+  return acceptablePasswordIm(text);
 }
 
 export function acceptablePasswordV(text: string) {
   if (passwordRule[4](text)) return false;
-  if (passwordRule[3](text)) return true;
-  if (passwordRule[2](text)) return false;
-  return passwordRule[0](text) && passwordRule[1](text);
+  return acceptablePasswordIV(text);
 }
 
 export function acceptablePasswordVI(text: string) {
   if (!passwordRule[5](text)) return false;
-  if (passwordRule[4](text)) return false;
-  if (passwordRule[3](text)) return true;
-  if (passwordRule[2](text)) return false;
-  return passwordRule[0](text) && passwordRule[1](text);
+  return acceptablePasswordV(text);
 }
 
 export function countVowels(s: string) {
