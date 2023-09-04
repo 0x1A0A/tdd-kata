@@ -37,5 +37,13 @@ describe("Sort by file extension", () => {
       "1.cad",
       ".aa.doc",
     ]);
+    expect(sortByExt([".a", ".a", ".a"])).toEqual([".a", ".a", ".a"]);
+  });
+  test("if extension is the same sort by name", () => {
+    expect(sortByExt(["b.a", "c.a", "a.a"])).toEqual(["a.a", "b.a", "c.a"]);
+  });
+  test("sort file with no name first", () => {
+    expect(sortByExt([".a", "c.a", "a.a"])).toEqual([".a", "a.a", "c.a"]);
+    expect(sortByExt(["c.a", ".a", "a.a"])).toEqual([".a", "a.a", "c.a"]);
   });
 });
