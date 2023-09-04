@@ -1,5 +1,8 @@
 import { describe, expect, test } from "vitest";
-import { verifyAnagram } from "../../src/checkio/electronics-station";
+import {
+  sortByExt,
+  verifyAnagram,
+} from "../../src/checkio/electronics-station";
 
 describe("Verify anagram", () => {
   test("verify anagram", () => {
@@ -12,5 +15,27 @@ describe("Verify anagram", () => {
     expect(verifyAnagram("a", "A")).toBeTruthy();
     expect(verifyAnagram("aAA", "A")).toBeFalsy();
     expect(verifyAnagram("aAA", "Aaa")).toBeTruthy();
+  });
+});
+
+describe("Sort by file extension", () => {
+  test("can sort string by file extension", () => {
+    expect(sortByExt(["1.cad", "1.bat", "1.aa"])).toEqual([
+      "1.aa",
+      "1.bat",
+      "1.cad",
+    ]);
+    expect(sortByExt(["1.cad", "1.bat", "1.aa", ".bat"])).toEqual([
+      ".bat",
+      "1.aa",
+      "1.bat",
+      "1.cad",
+    ]);
+    expect(sortByExt(["1.cad", "1.bat", "1.aa", ".aa.doc"])).toEqual([
+      "1.aa",
+      "1.bat",
+      "1.cad",
+      ".aa.doc",
+    ]);
   });
 });
