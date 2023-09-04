@@ -1,5 +1,9 @@
 import { describe, expect, test } from "vitest";
-import { commonWords, sumByType } from "../../src/checkio/science-expidition";
+import {
+  commonWords,
+  findMessage,
+  sumByType,
+} from "../../src/checkio/science-expidition";
 
 describe("Sum by type", () => {
   test("return empty string and 0", () => {
@@ -22,5 +26,12 @@ describe("common word", () => {
     expect(commonWords("", "a,b")).toEqual("");
     expect(commonWords("hello,world,tnt", "tnt,world")).toEqual("tnt,world");
     expect(commonWords("a,b,c,d,f", "b,f,d")).toEqual("b,d,f");
+  });
+});
+
+describe("Secret Message", () => {
+  test("filter only Capital letter", () => {
+    expect(findMessage("Hello I am")).toEqual("HI");
+    expect(findMessage("How are you? Eh, ok. Low or Lower? ")).toEqual("HELL");
   });
 });
