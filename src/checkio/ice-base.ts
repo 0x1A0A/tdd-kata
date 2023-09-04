@@ -6,3 +6,11 @@ export function mostNumber(...args: number[]): number {
   );
   return +(max - min).toFixed(3);
 }
+
+export function findQuotes(str: string): string[] {
+  const arr = str.matchAll(/"([^"]*)"/g)
+  const res: string[] = []
+  for (let a of arr) 
+	  res.push(a[1]);
+  return res;
+}
