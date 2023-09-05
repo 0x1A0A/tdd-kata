@@ -24,6 +24,23 @@ export function moveZeros(arr: number[]): number[] {
 }
 
 export function notOrder(arr: number[]): number {
-  const sorted = Array.from(arr).sort((a: number, b: number) => a-b);
+  const sorted = Array.from(arr).sort((a: number, b: number) => a - b);
   return arr.reduce((acc, v) => acc + (v != sorted.shift() ? 1 : 0), 0);
+}
+
+export function longRepeat(line: string): number {
+  let i = 0,
+    c = 0,
+    prev = undefined,
+    max = 0;
+  while (line[i]) {
+    if (prev != line[i]) {
+      max = Math.max(c, max);
+      c = 0;
+    }
+    prev = line[i];
+    ++c;
+    ++i;
+  }
+  return Math.max(c, max);
 }

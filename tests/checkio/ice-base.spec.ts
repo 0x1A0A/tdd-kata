@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
 import {
   findQuotes,
+  longRepeat,
   mostNumber,
   moveZeros,
   notOrder,
@@ -40,5 +41,13 @@ describe("Not order", () => {
     expect(notOrder([1, 3, 2])).toEqual(2);
     expect(notOrder([1, 1, 1])).toEqual(0);
     expect(notOrder([1, 3, 1, 2, 4])).toEqual(3);
+  });
+});
+
+describe("Long repeat line", () => {
+  test("find longest repeat character", () => {
+    expect(longRepeat("")).toEqual(0);
+    expect(longRepeat("a")).toEqual(1);
+    expect(longRepeat("aaiaaaa")).toEqual(4);
   });
 });
