@@ -22,3 +22,8 @@ export function moveZeros(arr: number[]): number[] {
     return 0;
   });
 }
+
+export function notOrder(arr: number[]): number {
+  const sorted = Array.from(arr).sort((a: number, b: number) => a-b);
+  return arr.reduce((acc, v) => acc + (v != sorted.shift() ? 1 : 0), 0);
+}
