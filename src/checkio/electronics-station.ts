@@ -70,3 +70,7 @@ export function wordsOrder(str: string, arr: string[]): boolean {
   }
   return arr.length == 0;
 }
+
+export function isMajority(arr: boolean[]): boolean {
+  return arr.reduce((acc, v) => acc + +v, 0) > arr.length / 2;
+}

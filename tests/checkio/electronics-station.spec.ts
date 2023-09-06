@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
 import {
+  isMajority,
   removeAfterK,
   sortByExt,
   verifyAnagram,
@@ -66,5 +67,16 @@ describe("Words order", () => {
   });
   test("return false if sequence contain the same word", () => {
     expect(wordsOrder("hi world am here", ["world", "world"])).toBeFalsy();
+  });
+});
+
+describe("Majority", () => {
+  test("return true if have more true element than false", () => {
+    expect(isMajority([true, true, false])).toBeTruthy();
+    expect(isMajority([true, true, false, true, true, false])).toBeTruthy();
+  });
+  test("return false if have more false or equal element than true", () => {
+    expect(isMajority([false, true, false])).toBeFalsy();
+    expect(isMajority([true, true, false, true, false, false])).toBeFalsy();
   });
 });
