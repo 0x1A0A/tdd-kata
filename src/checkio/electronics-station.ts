@@ -74,3 +74,15 @@ export function wordsOrder(str: string, arr: string[]): boolean {
 export function isMajority(arr: boolean[]): boolean {
   return arr.reduce((acc, v) => acc + +v, 0) > arr.length / 2;
 }
+
+export function chunkingBy(arr: number[], size: number): number[][] {
+  let chunk: number[][] = [];
+  let i = 0;
+
+  while (i < arr.length) {
+    chunk.push(arr.slice(i, i + size));
+    i += size;
+  }
+
+  return chunk;
+}

@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
 import {
+  chunkingBy,
   isMajority,
   removeAfterK,
   sortByExt,
@@ -78,5 +79,16 @@ describe("Majority", () => {
   test("return false if have more false or equal element than true", () => {
     expect(isMajority([false, true, false])).toBeFalsy();
     expect(isMajority([true, true, false, true, false, false])).toBeFalsy();
+  });
+});
+
+describe("Chunk", () => {
+  test("break array into chunk", () => {
+    expect(chunkingBy([], 3)).toEqual([]);
+    expect(chunkingBy([1, 2, 3], 2)).toEqual([[1, 2], [3]]);
+    expect(chunkingBy([1, 2, 3, 4, 5], 3)).toEqual([
+      [1, 2, 3],
+      [4, 5],
+    ]);
   });
 });
