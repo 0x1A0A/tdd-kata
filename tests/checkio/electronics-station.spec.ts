@@ -2,6 +2,7 @@ import { describe, expect, test } from "vitest";
 import {
   chunkingBy,
   isMajority,
+  mostWanted,
   removeAfterK,
   sortByExt,
   verifyAnagram,
@@ -90,5 +91,13 @@ describe("Chunk", () => {
       [1, 2, 3],
       [4, 5],
     ]);
+  });
+});
+
+describe("Most wanted", () => {
+  test("find most freqence word", () => {
+    expect(mostWanted("hello world")).toEqual("l");
+    expect(mostWanted("One")).toEqual("e");
+    expect(mostWanted("")).toEqual("");
   });
 });

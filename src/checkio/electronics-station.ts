@@ -86,3 +86,30 @@ export function chunkingBy(arr: number[], size: number): number[][] {
 
   return chunk;
 }
+
+export function mostWanted(str: string): string {
+  const char = (s: string) => s.charCodeAt(0);
+  const isLetter = (s: string) => char(s) >= char("a") && char(s) <= char("z");
+  const map: { [key: string]: number } = str
+    .split("")
+    .reduce((acc: { [key: string]: number }, s) => {
+      const lower = s.toLowerCase();
+      if (isLetter(lower)) {
+        if (!(lower in acc)) acc[lower] = 0;
+        acc[lower]++;
+      }
+      return acc;
+    }, {});
+
+  const [c, v] = Object.entries(map).reduce(
+    (acc: [string, number], v) => {
+      if (v[1] > acc[1]) acc = [v[0], v[1]];
+      if (v[1] == acc[1] && v[0] < acc[0]) acc = [v[0], v[1]];
+
+      return acc;
+    },
+    ["", 0],
+  );
+
+  return !v ? "" : c;
+}
