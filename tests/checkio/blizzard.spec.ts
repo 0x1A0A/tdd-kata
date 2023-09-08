@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { adjacentLetters, birthdayParty } from "../../src/checkio/blizzard";
+import { adjacentLetters, birthdayParty, compress } from "../../src/checkio/blizzard";
 
 describe("Adjacent letters", () => {
   test("remove same adjacent letters", () => {
@@ -20,5 +20,11 @@ describe("Birth day party", () => {
   test("I should move to closest week end but not before my birth day", () => {
     expect(birthdayParty(new Date(2022, 0, 5))).toEqual(new Date(2022, 0, 8));
     expect(birthdayParty(new Date(2022, 2, 30))).toEqual(new Date(2022, 3, 2));
+  });
+});
+
+describe("Compress list", () => {
+  test("reduce all element in list to no dupe after", () => {
+    expect(compress([1, 1, 1, 1, 1])).toEqual([1]);
   });
 });

@@ -22,3 +22,10 @@ export function birthdayParty(date: Date): Date {
   if (day == 6 || day == 0) return date;
   return new Date(+date + (6 - day) * 3600 * 24 * 1000);
 }
+
+export function compress(arr: number[]): number[] {
+  return arr.reduce((acc: number[], e) => {
+    if (acc[acc.length - 1] != e) acc.push(e);
+    return acc;
+  }, []);
+}
