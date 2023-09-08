@@ -26,5 +26,6 @@ describe("Birth day party", () => {
 describe("Compress list", () => {
   test("reduce all element in list to no dupe after", () => {
     expect(compress([1, 1, 1, 1, 1])).toEqual([1]);
+    expect(compress([1, 1, 2, 5, 6])).toEqual([1,2,5,6]);
   });
 });
