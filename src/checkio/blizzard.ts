@@ -16,3 +16,9 @@ export function adjacentLetters(line: string): string {
   }
   return result.join("");
 }
+
+export function birthdayParty(date: Date): Date {
+  const day = date.getDay();
+  if (day == 6 || day == 0) return date;
+  return new Date(+date + (6 - day) * 3600 * 24 * 1000);
+}
