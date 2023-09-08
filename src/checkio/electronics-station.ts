@@ -113,3 +113,13 @@ export function mostWanted(str: string): string {
 
   return !v ? "" : c;
 }
+
+export function isometricStrings(a: string, b: string): boolean {
+  let map: { [k: string]: string } = {};
+  const arr_a = a.split("");
+  const arr_b = b.split("");
+  return arr_a.every((c, index) => {
+    if (!(c in map)) map[c] = arr_b[index];
+    return map[c] == arr_b[index];
+  });
+}

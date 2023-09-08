@@ -2,6 +2,7 @@ import { describe, expect, test } from "vitest";
 import {
   chunkingBy,
   isMajority,
+  isometricStrings,
   mostWanted,
   removeAfterK,
   sortByExt,
@@ -99,5 +100,12 @@ describe("Most wanted", () => {
     expect(mostWanted("hello world")).toEqual("l");
     expect(mostWanted("One")).toEqual("e");
     expect(mostWanted("")).toEqual("");
+  });
+});
+
+describe("Isometric Strings", () => {
+  test("check if char in string a is unique to char in string b", () => {
+    expect(isometricStrings("add", "foo")).toBeTruthy();
+    expect(isometricStrings("add", "foa")).toBeFalsy();
   });
 });
