@@ -6,6 +6,7 @@
     "test": "bunx vitest --watch"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "^0.34.4",
     "bun-types": "latest",
     "vitest": "^0.34.4"
   },

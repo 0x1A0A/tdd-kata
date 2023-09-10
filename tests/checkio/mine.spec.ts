@@ -9,5 +9,6 @@ describe("Long press", () => {
       longPressed("welcome to checkio", "weeeelcome to cccheckio"),
     ).toBeTruthy();
     expect(longPressed("welcome boss!", "welcooome bos!!")).toBeFalsy();
+    expect(longPressed("welcome boss!", "welcooome bos!! yay!")).toBeFalsy();
   });
 });
