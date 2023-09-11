@@ -33,3 +33,15 @@ function isUpper(c: string) {
 export function findMessage(message: string): string {
   return message.split("").filter(isUpper).join("");
 }
+
+export function translate(text: string): string {
+  const VOWELS = "aeiouyAEIOUY".split("");
+  let i = 0;
+  let result = "";
+  while (text[i]) {
+    result = `${result}${text[i++]}`;
+    if (text[i - 1] == " ") continue;
+    i += VOWELS.includes(text[i - 1]) ? 2 : 1;
+  }
+  return result;
+}
