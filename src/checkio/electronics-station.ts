@@ -123,3 +123,14 @@ export function isometricStrings(a: string, b: string): boolean {
     return map[c] == arr_b[index];
   });
 }
+
+export function digitMultip(data: number): number {
+  let multiplyResult = 0;
+  while (data) {
+    const remain = data % 10;
+    if (remain && multiplyResult == 0) multiplyResult = 1;
+    if (remain) multiplyResult *= remain;
+    data = Math.floor(data / 10);
+  }
+  return multiplyResult;
+}

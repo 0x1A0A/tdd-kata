@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
 import {
   chunkingBy,
+  digitMultip,
   isMajority,
   isometricStrings,
   mostWanted,
@@ -107,5 +108,16 @@ describe("Isometric Strings", () => {
   test("check if char in string a is unique to char in string b", () => {
     expect(isometricStrings("add", "foo")).toBeTruthy();
     expect(isometricStrings("add", "foa")).toBeFalsy();
+  });
+});
+
+describe("Digit multiplication", () => {
+  test("multiply all digit in number", () => {
+    expect(digitMultip(1211)).toEqual(2);
+    expect(digitMultip(1234)).toEqual(24);
+  });
+  test("multiply all digit exclude '0'", () => {
+    expect(digitMultip(1201)).toEqual(2);
+    expect(digitMultip(0)).toEqual(0);
   });
 });
