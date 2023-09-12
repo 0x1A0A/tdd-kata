@@ -5,7 +5,7 @@ Using Catch2 library to practices unit testing in C++ language.
 To build:
 
 ``` build
-cmake . -B <directory_name>
+cmake . -B <directory_name> -DCMAKE_CXX_COMPILER=<compiler>
 ```
 
 To run:
