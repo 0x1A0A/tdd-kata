@@ -15,6 +15,6 @@ cd build
 make
 
 // run
-./src/tddapp_src
+./src/tdd
 ```
 
