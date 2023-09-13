@@ -1,6 +1,7 @@
 #include <string.h>
 
 inline bool isNumerics(int c) { return c >= '0' && c <= '9'; }
+inline bool isAlphabet(int c) { return c >= 'a' && c <= 'z'; }
 
 inline int duplicateCount(const char *str) {
   int c[26] = {0};
@@ -13,7 +14,7 @@ inline int duplicateCount(const char *str) {
   while (str[i]) {
     if (isNumerics(str[i]))
       n[str[i] - '0']++;
-    else
+    else if (isAlphabet(str[i] | ' '))
       c[(str[i] | ' ') - 'a']++;
     ++i;
   }
