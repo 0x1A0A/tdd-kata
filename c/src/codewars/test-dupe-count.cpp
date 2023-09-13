@@ -5,4 +5,5 @@ TEST_CASE("Counting duplicate", "[codewars]") {
   REQUIRE(duplicateCount("abc") == 0);
   REQUIRE(duplicateCount("abcaaaa") == 1);
   REQUIRE(duplicateCount("abcarab") == 2);
+  REQUIRE(duplicateCount("abcarab111") == 3);
 }

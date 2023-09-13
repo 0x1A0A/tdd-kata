@@ -12,7 +12,7 @@ inline int duplicateCount(const char *str) {
   int i = 0;
   while (str[i]) {
     if (isNumerics(str[i]))
-      c[str[i] - '0']++;
+      n[str[i] - '0']++;
     else
       c[(str[i] | ' ') - 'a']++;
     ++i;
@@ -24,6 +24,7 @@ inline int duplicateCount(const char *str) {
     count += c[i] > 1;
     ++i;
   }
+  i = 0;
   while (i < 10) {
     count += n[i] > 1;
     ++i;
