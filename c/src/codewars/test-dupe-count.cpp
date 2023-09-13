@@ -8,4 +8,5 @@ TEST_CASE("Counting duplicate", "[codewars]") {
   REQUIRE(duplicateCount("abcarab111") == 3);
   REQUIRE(duplicateCount("abcara//;-b111") == 3);
   REQUIRE(duplicateCount("asdfghjkl;'\asdfghjkl;'\'") == 8);
+  REQUIRE(duplicateCount("asdfghjkl;'\'") == 1);
 }
