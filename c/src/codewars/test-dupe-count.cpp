@@ -6,7 +6,7 @@ TEST_CASE("Counting duplicate", "[codewars]") {
   REQUIRE(duplicateCount("abcaaaa") == 1);
   REQUIRE(duplicateCount("abcarab") == 2);
   REQUIRE(duplicateCount("abcarab111") == 3);
-  REQUIRE(duplicateCount("abcara//;-b111") == 3);
-  REQUIRE(duplicateCount("asdfghjkl;'\asdfghjkl;'\'") == 8);
+  REQUIRE(duplicateCount("abcara//;-b111") == 4);
+  REQUIRE(duplicateCount("asdfghjkl;'\asdfghjkl;'\'") == 10);
   REQUIRE(duplicateCount("asdfghjkl;'\'") == 1);
 }
