@@ -159,15 +159,7 @@ export function longestCommonPrefix(texts: string[]): string {
 }
 
 export function reverseDigits(digits: number) {
-  let reverse = 0;
-  const sign = Math.sign(digits);
-  digits = Math.abs(digits);
-
-  while (digits) {
-    reverse *= 10;
-    reverse += digits % 10;
-
-    digits = Math.floor(digits / 10);
-  }
-  return reverse * sign;
+  return (
+    parseInt(digits.toString().split("").reverse().join("")) * Math.sign(digits)
+  );
 }
