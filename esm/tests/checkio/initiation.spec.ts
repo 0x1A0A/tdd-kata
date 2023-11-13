@@ -17,6 +17,7 @@ import {
   longestWord,
   maxDigit,
   replaceFirst,
+  replaceWithBiggest,
   reverseDigits,
   sortExceptZero,
   splitPair,
@@ -234,5 +235,13 @@ describe("Count Divisibles in Range", () => {
     expect(countDivisible(4, 2)).toEqual(2);
     expect(countDivisible(3, 2)).toEqual(1);
     expect(countDivisible(15, 4)).toEqual(3);
+  });
+});
+
+describe("Replace with Biggest", () => {
+  test("it replace itself with biggest number on the right", () => {
+    expect(replaceWithBiggest([1, 18, 4, 3, 6, 1])).toEqual([
+      18, 6, 6, 6, 1, -1,
+    ]);
   });
 });

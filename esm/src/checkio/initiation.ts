@@ -167,3 +167,15 @@ export function reverseDigits(digits: number) {
 export function countDivisible(end: number, divider: number): number {
   return Math.floor(end / divider);
 }
+
+export function replaceWithBiggest(arr: number[]): number[] {
+  const replace = arr.slice().reverse();
+  let largest = -1;
+  return replace
+    .map((e) => {
+      const temp = largest;
+      if (e > largest) largest = e;
+      return temp;
+    })
+    .reverse();
+}
