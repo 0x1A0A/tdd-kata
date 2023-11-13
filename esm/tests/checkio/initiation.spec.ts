@@ -8,6 +8,7 @@ import {
   backwardString,
   beginningZeros,
   correctSentence,
+  countDivisible,
   countVowels,
   endingZeros,
   firstWord,
@@ -225,5 +226,13 @@ describe("Reverse Integer", () => {
     expect(reverseDigits(-1)).toEqual(-1);
     expect(reverseDigits(-1345)).toEqual(-5431);
     expect(reverseDigits(987654321)).toEqual(123456789);
+  });
+});
+
+describe("Count Divisibles in Range", () => {
+  test("find how many number is divisible in the given range", () => {
+    expect(countDivisible(4, 2)).toEqual(2);
+    expect(countDivisible(3, 2)).toEqual(1);
+    expect(countDivisible(15, 4)).toEqual(3);
   });
 });

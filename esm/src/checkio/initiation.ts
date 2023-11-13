@@ -163,3 +163,7 @@ export function reverseDigits(digits: number) {
     parseInt(digits.toString().split("").reverse().join("")) * Math.sign(digits)
   );
 }
+
+export function countDivisible(end: number, divider: number): number {
+  return Math.floor(end / divider);
+}
