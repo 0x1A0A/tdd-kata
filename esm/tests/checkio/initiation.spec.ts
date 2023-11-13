@@ -16,6 +16,7 @@ import {
   longestWord,
   maxDigit,
   replaceFirst,
+  reverseDigits,
   sortExceptZero,
   splitPair,
 } from "../../src/checkio/initiation";
@@ -204,5 +205,25 @@ describe("Longest common prefix", () => {
     expect(longestCommonPrefix(["hello", "hell", "world", "angel"])).toEqual(
       "",
     );
+  });
+});
+
+describe("Reverse Integer", () => {
+  test("return 0 if anumber is 0", () => {
+    expect(reverseDigits(0)).toEqual(0);
+  });
+
+  test("return same number if it less than 10", () => {
+    expect(reverseDigits(6)).toEqual(6);
+  });
+
+  test("return reverse number if it more than or equal 10", () => {
+    expect(reverseDigits(123)).toEqual(321);
+  });
+
+  test("reverse negative number", () => {
+    expect(reverseDigits(-1)).toEqual(-1);
+    expect(reverseDigits(-1345)).toEqual(-5431);
+    expect(reverseDigits(987654321)).toEqual(123456789);
   });
 });

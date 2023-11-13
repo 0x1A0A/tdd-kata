@@ -157,3 +157,17 @@ export function longestCommonPrefix(texts: string[]): string {
   }
   return prefix || "";
 }
+
+export function reverseDigits(digits: number) {
+  let reverse = 0;
+  const sign = Math.sign(digits);
+  digits = Math.abs(digits);
+
+  while (digits) {
+    reverse *= 10;
+    reverse += digits % 10;
+
+    digits = Math.floor(digits / 10);
+  }
+  return reverse * sign;
+}
