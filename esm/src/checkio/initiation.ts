@@ -54,8 +54,9 @@ export function splitPair(text: string) {
     }
     return acc;
   }, []);
-  if (pair.length > 0)
+  if (pair.length > 0) {
     pair[pair.length - 1] += pair[pair.length - 1].length == 1 ? "_" : "";
+  }
   return pair;
 }
 
@@ -133,7 +134,7 @@ export function sortExceptZero(array: number[]) {
 }
 
 export function longestSubstr(str: string): number {
-  let queue: string[] = [];
+  const queue: string[] = [];
   let max = 0;
   str.split("").forEach((s) => {
     while (queue.includes(s)) queue.shift();

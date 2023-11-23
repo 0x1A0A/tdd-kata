@@ -7,7 +7,7 @@ function create_number_map(acc: Mapped, n: number): Mapped {
 }
 
 export function verifyAnagram(a: string, b: string): boolean {
-  let map: { [key: string]: number } = a
+  const map: { [key: string]: number } = a
     .replaceAll(" ", "")
     .toLowerCase()
     .split("")
@@ -76,7 +76,7 @@ export function isMajority(arr: boolean[]): boolean {
 }
 
 export function chunkingBy(arr: number[], size: number): number[][] {
-  let chunk: number[][] = [];
+  const chunk: number[][] = [];
   let i = 0;
 
   while (i < arr.length) {
@@ -115,7 +115,7 @@ export function mostWanted(str: string): string {
 }
 
 export function isometricStrings(a: string, b: string): boolean {
-  let map: { [k: string]: string } = {};
+  const map: { [k: string]: string } = {};
   const arr_a = a.split("");
   const arr_b = b.split("");
   return arr_a.every((c, index) => {

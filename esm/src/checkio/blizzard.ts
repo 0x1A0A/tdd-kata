@@ -7,7 +7,7 @@ export function adjacentLetters(line: string): string {
     }
     return 0;
   };
-  let result = line.split("");
+  const result = line.split("");
   let adj = adjacent(result);
   while (adj) {
     result.splice(adj, 1);

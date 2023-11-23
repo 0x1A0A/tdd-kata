@@ -19,7 +19,7 @@ export const betweenMarkers = (
 export function allPermutation(str: string): string[] {
   if (str.length == 1) return [str];
   if (str.length == 2) return [str, `${str[1]}${str[0]}`];
-  let arr: string[] = [];
+  const arr: string[] = [];
   let i = 0;
   while (i < str.length) {
     arr.push(

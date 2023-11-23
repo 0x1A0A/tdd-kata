@@ -10,15 +10,16 @@ export function mostNumber(...args: number[]): number {
 export function findQuotes(str: string): string[] {
   const arr = str.matchAll(/"([^"]*)"/g);
   const res: string[] = [];
-  for (let a of arr) res.push(a[1]);
+  for (const a of arr) res.push(a[1]);
   return res;
 }
 
 export function moveZeros(arr: number[]): number[] {
   return arr.sort((a, b) => {
-    if (!a || !b)
+    if (!a || !b) {
       if (!a) return 1;
       else if (!b) return -1;
+    }
     return 0;
   });
 }
