@@ -6,6 +6,10 @@ impl Solution {
         let mut set: std::collections::HashSet<&str> = std::collections::HashSet::new();
 
         let word: Vec<&str> = s.split(" ").collect();
+        
+        if word.len() != pattern.len() {
+            return false;
+        }
 
         for (i, v) in pattern.chars().into_iter().enumerate() {
             if let Some(w) = map.get(&v) {
@@ -15,7 +19,7 @@ impl Solution {
                 continue;
             }
 
-            if let Some(w) = set.get(word[i]) {
+            if let Some(_) = set.get(word[i]) {
                 return false;
             }
 
@@ -32,6 +36,15 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn false_if_pattern_lenght_is_not_equal_to_word() {
+        let resutl = Solution::word_pattern("aaaa".to_owned(), "ok".to_owned());
+        assert!(resutl == false);
+
+        let resutl = Solution::word_pattern("aa".to_owned(), "ok ok ok".to_owned());
+        assert!(resutl == false);
+    }
 
     #[test]
     fn can_detect_one_pattern() {
