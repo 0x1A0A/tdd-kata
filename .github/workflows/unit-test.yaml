@@ -8,7 +8,7 @@ jobs:
   deno:
     name: typescript
     runs-on: linux
-    default:
+    defaults:
       run:
         working-directory: esm
     steps:
