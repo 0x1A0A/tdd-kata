@@ -27,8 +27,6 @@ impl Solution {
             set.insert(word[i]);
         }
 
-        println!("{:?}", map);
-
         true
     }
 }
