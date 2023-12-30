@@ -31,8 +31,8 @@ jobs:
         working-directory: c
     steps:
       - uses: actions/checkout@v4
-
-      - run: git submodule update --init --recursive
+        with:
+          submodule: true
 
       - uses: threeal/cmake-action@v1.3.0
         with:
