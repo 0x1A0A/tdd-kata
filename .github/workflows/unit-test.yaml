@@ -23,3 +23,18 @@ jobs:
       - name: test
         run: deno test
 
+  c:
+    name: c c++
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: c
+    steps:
+      - uses: actions/checkout@v4
+      - uses: threeal/cmake-action@v1.3.0
+
+      - name: build
+        run: cmake -S ./ -B build 
+
+      - name: compile and test
+        run: cd build && make && ./src/tdd
