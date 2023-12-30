@@ -32,10 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/checkout@v4
-        with:
-          repository: catchorg/Catch2
-          path: vendors/Catch2
+      - run: git submodule update --init --recursive
 
       - uses: threeal/cmake-action@v1.3.0
         with:
