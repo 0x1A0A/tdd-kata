@@ -34,10 +34,8 @@ jobs:
 
       - uses: actions/checkout@v4
         with:
-          repo: catchorg/Catch2
+          repository: catchorg/Catch2
           path: vendors/Catch2
-
-      - run: git submodule init && git submodule update
 
       - uses: threeal/cmake-action@v1.3.0
         with:
