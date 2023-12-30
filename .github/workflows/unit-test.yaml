@@ -31,8 +31,11 @@ jobs:
         working-directory: c
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.CI_TOKEN }}
+          repo: catchorg/Catch2
+          path: vendors/Catch2
 
       - run: git submodule init && git submodule update
 
