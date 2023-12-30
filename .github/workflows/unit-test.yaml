@@ -32,7 +32,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: threeal/cmake-action@v1.3.0
-        source-dir: c
+        with:
+          source-dir: c
 
       - name: build
         run: cmake -S ./ -B build 
