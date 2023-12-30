@@ -43,3 +43,17 @@ jobs:
 
       - name: compile and test
         run: cd build && make && ./src/tdd
+
+  rust:
+    name: rust
+    defaults:
+      run:
+        working-directory: rust
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions-rs/toolchain@v1
+
+      - uses: actions-rs/cargo@v1
+        with:
+          command: test
