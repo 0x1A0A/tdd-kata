@@ -36,7 +36,8 @@ jobs:
 
       - uses: actions/cache@v3
         with:
-          path: **/c/build
+          path: |
+            **/c/build
           key: ${{ runner.os }}-store-cache-cmake-build
 
       - uses: threeal/cmake-action@v1.3.0
@@ -52,7 +53,8 @@ jobs:
       - uses: actions/cache/save@v3
         id: cache
         with:
-          path: **/c/build
+          path: |
+            **/c/build
           key: ${{ runner.os }}-store-cache-cmake-build
 
   rust:
