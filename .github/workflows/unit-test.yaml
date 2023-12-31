@@ -37,7 +37,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: |
-            c/build
+            **/c/build
           key: ${{ runner.os }}-node_modules-store-cache-cmake-build
 
       - uses: threeal/cmake-action@v1.3.0
