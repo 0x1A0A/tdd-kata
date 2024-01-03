@@ -10,7 +10,7 @@ This repo contain solution of problem from checkio, leetcode and codeforces. Whi
 ## How to run
 
 ### C,C++
-Depedency
+Dependency
 - cmake
 - make or other build system
 
@@ -22,7 +22,7 @@ make && ./src/tdd
 ```
 
 ### Ecmascript (typescript)
-Depedency
+Dependency
 - Deno
 
 ```bash
@@ -31,7 +31,7 @@ deno test
 ```
 
 ### Rust
-Depedency
+Dependency
 - rustup
 
 ```bash
