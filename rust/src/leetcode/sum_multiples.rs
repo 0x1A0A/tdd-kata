@@ -3,17 +3,7 @@ struct Solution;
 impl Solution {
     pub fn sum_of_multiples(n: i32) -> i32 {
         let divide: Vec<i32> = vec![3, 5, 7];
-        let mut sum: i32 = 0;
-
-        for i in 3..=n {
-            sum += if divide.iter().any(|&x| i % x == 0) {
-                i
-            } else {
-                0
-            };
-        }
-
-        sum
+        (3..=n).filter(|&x| divide.iter().any(|&d| x % d == 0)).sum()
     }
 }
 
