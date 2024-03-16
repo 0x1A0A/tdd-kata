@@ -41,10 +41,10 @@ jobs:
           source-dir: c
 
       - name: build
-        run: cmake -S ./ -B build 
+        run: cmake -S ./ -B build -GNinja
 
-      - name: compile and test
-        run: cd build && make && ./src/tdd
+      - name: Run unit tests
+        uses: HorstBaerbel/action-ctest@1.1
 
   rust:
     name: rust
