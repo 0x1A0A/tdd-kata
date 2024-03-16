@@ -5,7 +5,6 @@ project("Test Driven c++")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include(FetchContent)
-
 FetchContent_Declare(
   googletest
   GIT_REPOSITORY https://github.com/google/googletest.git
@@ -14,5 +13,6 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(googletest)
 
+enable_testing()
+include(GoogleTest)
 add_subdirectory(src)
-

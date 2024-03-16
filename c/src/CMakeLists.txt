@@ -1,17 +1,9 @@
-enable_testing()
-
-file(
-	GLOB_RECURSE app_src
-	"${CMAKE_CURRENT_LIST_DIR}/*.cpp"
-)
-
 file(
 	GLOB_RECURSE app_test_src
-	"${CMAKE_CURRENT_LIST_DIR}/test-*.cpp"
+	"${CMAKE_CURRENT_LIST_DIR}/*_test.cpp"
 )
 
-add_executable(tdd ${app_src})
-target_link_libraries(tdd GTest::gtest_main)
+add_executable(tdd_test ${app_test_src})
+target_link_libraries(tdd_test GTest::gtest_main)
 
-include(GoogleTest)
-gtest_discover_tests(tdd)
+gtest_discover_tests(tdd_test)
