@@ -15,6 +15,7 @@ jobs:
         working-directory: esm
     steps:
       - uses: actions/checkout@v4
+
       - uses: denoland/setup-deno@61fe2df320078202e33d7d5ad347e7dcfa0e8f31
         with:
           deno-version: v1.x
@@ -33,15 +34,13 @@ jobs:
         working-directory: c
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: true
 
       - uses: threeal/cmake-action@v1.3.0
         with:
           source-dir: c
 
       - name: build
-        run: cmake -S ./ -B build -GNinja
+        run: cmake -S ./ -B build
 
       - name: Run unit tests
         uses: HorstBaerbel/action-ctest@1.1
