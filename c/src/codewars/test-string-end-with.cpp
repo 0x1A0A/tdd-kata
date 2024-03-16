@@ -1,8 +1,8 @@
 #include "./string-end-with.h"
-#include <catch2/catch_test_macros.hpp>
+#include "gtest/gtest.h"
 
-TEST_CASE("Check if string endwith", "[codewars]") {
-  REQUIRE(string_endwith("abc", "bc") == true);
-  REQUIRE(string_endwith("abc", "a") == false);
-  REQUIRE(string_endwith("abc", "aabc") == false);
+TEST(Checkifstringendwith, codewars) {
+  ASSERT_TRUE(string_endwith("abc", "bc") == true);
+  ASSERT_TRUE(string_endwith("abc", "a") == false);
+  ASSERT_TRUE(string_endwith("abc", "aabc") == false);
 }

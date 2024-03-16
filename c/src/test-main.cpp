@@ -1,25 +1,21 @@
-#include <catch2/catch_test_macros.hpp>
+#include <gtest/gtest.h>
 
-int add(int a, int b) {
-	return a+b;
-}
+int add(int a, int b) { return a + b; }
 
 long reverse_i(long a) {
-	long result = 0;
-	while (a) {
-		result *=10;
-		result += a%10;
-		a /= 10;	
-	}
-	return result;
+  long result = 0;
+  while (a) {
+    result *= 10;
+    result += a % 10;
+    a /= 10;
+  }
+  return result;
 }
 
-TEST_CASE("Add number", "[catch2 test add]") {
-	REQUIRE(add(1,2)==3);
-}
+TEST(AddNumber, gtesttestadd) { ASSERT_TRUE(add(1, 2) == 3); }
 
-TEST_CASE("Reverse number", "[catch2 test reverse]") {
-	REQUIRE(reverse_i(10) == 1);
-	REQUIRE(reverse_i(12) == 21);
-	REQUIRE(reverse_i(100009) == 900001);
+TEST(ReverseNumber, gtesttestreverse) {
+  ASSERT_TRUE(reverse_i(10) == 1);
+  ASSERT_TRUE(reverse_i(12) == 21);
+  ASSERT_TRUE(reverse_i(100009) == 900001);
 }

@@ -1,12 +1,12 @@
-#include <catch2/catch_test_macros.hpp>
 #include "./dupe-count.h"
+#include "gtest/gtest.h"
 
-TEST_CASE("Counting duplicate", "[codewars]") {
-  REQUIRE(duplicateCount("abc") == 0);
-  REQUIRE(duplicateCount("abcaaaa") == 1);
-  REQUIRE(duplicateCount("abcarab") == 2);
-  REQUIRE(duplicateCount("abcarab111") == 3);
-  REQUIRE(duplicateCount("abcara//;-b111") == 4);
-  REQUIRE(duplicateCount("asdfghjkl;'\asdfghjkl;'\'") == 10);
-  REQUIRE(duplicateCount("asdfghjkl;'\'") == 1);
+TEST(Countingduplicate, codewars) {
+  ASSERT_TRUE(duplicateCount("abc") == 0);
+  ASSERT_TRUE(duplicateCount("abcaaaa") == 1);
+  ASSERT_TRUE(duplicateCount("abcarab") == 2);
+  ASSERT_TRUE(duplicateCount("abcarab111") == 3);
+  ASSERT_TRUE(duplicateCount("abcara//;-b111") == 4);
+  ASSERT_TRUE(duplicateCount("asdfghjkl;'\asdfghjkl;'\'") == 10);
+  ASSERT_TRUE(duplicateCount("asdfghjkl;'\'") == 1);
 }
