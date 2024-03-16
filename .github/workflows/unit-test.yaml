@@ -45,6 +45,11 @@ jobs:
 
       - name: Run unit tests
         uses: HorstBaerbel/action-ctest@1.1
+        with:
+          sourcedir: "."
+          builddir: "build"
+          cmakeoptions: ""
+          ctestoptions: ""
 
   rust:
     name: rust
