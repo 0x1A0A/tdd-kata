@@ -4,6 +4,6 @@ file(
 )
 
 add_executable(tdd_test ${app_test_src})
-target_link_libraries(tdd_test GTest::gtest_main)
+target_link_libraries(tdd_test GTest::gtest_main gmock_main)
 
 gtest_discover_tests(tdd_test)
