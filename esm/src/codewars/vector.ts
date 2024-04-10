@@ -12,4 +12,8 @@ export class Vector {
   substract(other: Vector) {
     return new Vector(this.elm.map((e, i) => e - other.elm[i]));
   }
+
+  dot(other: Vector) {
+    return new Vector(this.elm.map((e, i) => e * other.elm[i]));
+  }
 }

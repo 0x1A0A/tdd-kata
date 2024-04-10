@@ -32,4 +32,11 @@ Deno.test("Vector class", async (t) => {
 
     assert(a.substract(b).equals(new Vector([-2, -2, -2])));
   });
+
+  await t.step("Dot", () => {
+    const a = new Vector([1, 2, 3]);
+    const b = new Vector([3, 4, 5]);
+
+    assert(a.dot(b).equals(new Vector([3, 8, 15])));
+  });
 });
