@@ -18,7 +18,9 @@ export class Vector {
 
   dot(other: Vector) {
     this.assert_same_length(other);
-    return new Vector(this.elm.map((e, i) => e * other.elm[i]));
+    return this.elm
+      .map((e, i) => e * other.elm[i])
+      .reduce((acc, v) => acc + v, 0);
   }
 
   norm() {

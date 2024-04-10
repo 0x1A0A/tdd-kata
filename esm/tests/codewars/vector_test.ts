@@ -45,7 +45,7 @@ Deno.test("Vector class", async (t) => {
     const a = new Vector([1, 2, 3]);
     const b = new Vector([3, 4, 5]);
 
-    assert(a.dot(b).equals(new Vector([3, 8, 15])));
+    assertEquals(a.dot(b), 26);
   });
 
   await t.step("Normalize", () => {
