@@ -38,7 +38,7 @@ Deno.test("Vector class", async (t) => {
     const a = new Vector([1, 2, 3]);
     const b = new Vector([3, 4, 5]);
 
-    assert(a.substract(b).equals(new Vector([-2, -2, -2])));
+    assert(a.subtract(b).equals(new Vector([-2, -2, -2])));
   });
 
   await t.step("Dot", () => {
@@ -58,7 +58,7 @@ Deno.test("Vector class", async (t) => {
     const a = new Vector([1, 2, 3]);
     const b = new Vector([3, 4, 5, 6]);
     assertThrows(() => a.add(b));
-    assertThrows(() => a.substract(b));
+    assertThrows(() => a.subtract(b));
     assertThrows(() => a.dot(b));
   });
 });
