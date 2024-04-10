@@ -16,4 +16,8 @@ export class Vector {
   dot(other: Vector) {
     return new Vector(this.elm.map((e, i) => e * other.elm[i]));
   }
+
+  norm() {
+    return Math.sqrt(this.elm.reduce((acc, v) => acc + v * v, 0));
+  }
 }

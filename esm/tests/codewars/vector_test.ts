@@ -1,5 +1,6 @@
 import {
   assert,
+  assertEquals,
   assertFalse,
 } from "https://deno.land/std@0.211.0/assert/mod.ts";
 import { Vector } from "../../src/codewars/vector.ts";
@@ -38,5 +39,11 @@ Deno.test("Vector class", async (t) => {
     const b = new Vector([3, 4, 5]);
 
     assert(a.dot(b).equals(new Vector([3, 8, 15])));
+  });
+
+  await t.step("Normalize", () => {
+    const a = new Vector([1, 2, 3]);
+
+    assertEquals(a.norm(), Math.sqrt(14));
   });
 });
