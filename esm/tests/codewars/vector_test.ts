@@ -2,6 +2,7 @@ import {
   assert,
   assertEquals,
   assertFalse,
+  assertThrows,
 } from "https://deno.land/std@0.211.0/assert/mod.ts";
 import { Vector } from "../../src/codewars/vector.ts";
 
@@ -10,9 +11,15 @@ Deno.test("Vector class", async (t) => {
     const a = new Vector([1, 2, 3]);
     const b = new Vector([3, 4, 5]);
     const c = new Vector([3, 4, 5]);
+    const d = new Vector([3, 4, 5, 6]);
 
     await t.step("Not Equal", () => {
       assertFalse(a.equals(b));
+    });
+
+    await t.step("Different length", () => {
+      assertFalse(b.equals(d));
+      assertFalse(d.equals(b));
     });
 
     await t.step("Equal", () => {
@@ -45,5 +52,13 @@ Deno.test("Vector class", async (t) => {
     const a = new Vector([1, 2, 3]);
 
     assertEquals(a.norm(), Math.sqrt(14));
+  });
+
+  await t.step("Should throw error", () => {
+    const a = new Vector([1, 2, 3]);
+    const b = new Vector([3, 4, 5, 6]);
+    assertThrows(() => a.add(b));
+    assertThrows(() => a.substract(b));
+    assertThrows(() => a.dot(b));
   });
 });
