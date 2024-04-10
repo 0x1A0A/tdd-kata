@@ -61,4 +61,9 @@ Deno.test("Vector class", async (t) => {
     assertThrows(() => a.subtract(b));
     assertThrows(() => a.dot(b));
   });
+
+  await t.step("toString", () => {
+    const a = new Vector([1, 2, 3]);
+    assertEquals(a.toString(), "(1,2,3)");
+  });
 });

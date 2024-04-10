@@ -30,4 +30,8 @@ export class Vector {
   private assert_same_length(other: Vector) {
     if (other.elm.length !== this.elm.length) throw Error("Not same length");
   }
+
+  toString() {
+    return `(${this.elm.toString()})`;
+  }
 }
