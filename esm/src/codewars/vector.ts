@@ -6,6 +6,10 @@ export class Vector {
   }
 
   add(other: Vector) {
-    return new Vector(other.elm.map((e, i) => e + this.elm[i]));
+    return new Vector(this.elm.map((e, i) => e + other.elm[i]));
+  }
+
+  substract(other: Vector) {
+    return new Vector(this.elm.map((e, i) => e - other.elm[i]));
   }
 }
