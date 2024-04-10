@@ -18,4 +18,11 @@ Deno.test("Vector class", async (t) => {
       assert(c.equals(b));
     });
   });
+
+  await t.step("Add", () => {
+    const a = new Vector([1, 2, 3]);
+    const b = new Vector([3, 4, 5]);
+
+    assert(a.add(b).equals(new Vector([4, 6, 8])));
+  });
 });
