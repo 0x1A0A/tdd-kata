@@ -1,25 +1,11 @@
 fn to_camel_case(str: &str) -> String {
     str.split(|x| x == '-' || x == '_')
         .enumerate()
-        .map(|(i, x)| {
-            if i == 0 {
-                return x.to_string();
-            }
-            x.bytes()
-                .enumerate()
-                .map(|(ii, c)| {
-                    if ii == 0 {
-                        (c as char).to_uppercase().to_string()
-                    } else {
-                        (c as char).to_string()
-                    }
-                })
-                .collect::<Vec<_>>()
-                .join("")
-                .to_string()
+        .map(|(i, x)| match i {
+            0 => x.to_string(),
+            _ => x[..1].to_uppercase() + &x[1..],
         })
-        .collect::<Vec<_>>()
-        .join("")
+        .collect()
 }
 
 #[cfg(test)]
