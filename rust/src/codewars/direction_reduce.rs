@@ -7,37 +7,23 @@ enum Direction {
 }
 
 fn dir_reduc(arr: &[Direction]) -> Vec<Direction> {
-    let mut result = arr.iter().map(|x| Some(*x)).collect::<Vec<_>>();
-    loop {
-        let mut stop = true;
-        let mut i = 0;
-        loop {
-            if result.len() == 0 || i >= result.len() - 1 {
-                break;
+    let mut stack = vec![];
+
+    for &dir in arr.iter() {
+        match (dir, stack.last()) {
+            (Direction::North, Some(Direction::South))
+            | (Direction::South, Some(Direction::North))
+            | (Direction::East, Some(Direction::West))
+            | (Direction::West, Some(Direction::East)) => {
+                stack.pop();
             }
-            match (result[i], result[i + 1]) {
-                (Some(Direction::North), Some(Direction::South))
-                | (Some(Direction::South), Some(Direction::North))
-                | (Some(Direction::East), Some(Direction::West))
-                | (Some(Direction::West), Some(Direction::East)) => {
-                    result[i] = None;
-                    result[i + 1] = None;
-                    stop = false;
-                }
-                _ => {}
+            _ => {
+                stack.push(dir);
             }
-            i += 1;
-        }
-        result = result
-            .iter()
-            .filter(|x| x.is_some())
-            .map(|x| *x)
-            .collect::<Vec<_>>();
-        if stop {
-            break;
         }
     }
-    result.iter().filter_map(|x| *x).collect()
+
+    stack
 }
 
 #[cfg(test)]
