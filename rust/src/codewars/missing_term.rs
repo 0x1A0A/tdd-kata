@@ -1,20 +1,5 @@
 fn find_missing(seq: &[i32]) -> i32 {
-    let gap = seq[1] - seq[0];
-
-    for i in 1..seq.len() {
-        let new_gap = seq[i] - seq[i - 1];
-        match new_gap.abs().cmp(&gap.abs()) {
-            std::cmp::Ordering::Less => {
-                return seq[i - 2] + new_gap;
-            }
-            std::cmp::Ordering::Greater => {
-                return seq[i - 1] + gap;
-            }
-            std::cmp::Ordering::Equal => {}
-        }
-    }
-
-    seq[0]
+    (seq[0] + seq[seq.len() - 1]) * (seq.len() as i32 + 1) / 2 - seq.iter().sum::<i32>()
 }
 
 #[cfg(test)]
