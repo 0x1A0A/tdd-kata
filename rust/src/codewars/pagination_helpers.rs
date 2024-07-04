@@ -31,15 +31,10 @@ impl<T> PaginationHelper<T> {
     }
 
     fn page_index(&self, item_index: usize) -> Option<usize> {
-        let page_count = self.page_count();
-        if page_count == 0 || item_index >= self.data.len() {
+        if item_index >= self.data.len() {
             return None;
         }
-        let page = item_index / self.width;
-        match page {
-            x if x <= page_count => Some(page),
-            _ => None,
-        }
+        Some(item_index / self.width)
     }
 }
 
