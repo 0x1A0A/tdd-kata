@@ -5,4 +5,5 @@ pub mod ip_validation;
 pub mod missing_term;
 pub mod pagination_helpers;
 pub mod rect_to_square;
+pub mod reverse_or_rotate;
 pub mod unique_order;
