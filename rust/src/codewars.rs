@@ -7,3 +7,4 @@ pub mod pagination_helpers;
 pub mod rect_to_square;
 pub mod reverse_or_rotate;
 pub mod unique_order;
+pub mod isbn10;
