@@ -5,12 +5,8 @@ fn valid_isbn10(isbn: &str) -> bool {
         c += 1;
         match value(i) {
             None => return false,
-            Some(x) => {
-                if c != 10 && x == 10 {
-                    return false;
-                }
-                sum += x as u32 * c;
-            }
+            Some(10) if c != 10 => return false,
+            Some(x) => sum += x as u32 * c,
         }
     }
     if c == 10 {
@@ -41,16 +37,32 @@ mod tests {
     }
 
     #[test]
-    fn sample_tests() {
+    fn validate_pass() {
         dotest("1112223339", true);
         dotest("048665088X", true);
         dotest("1293000000", true);
         dotest("1234554321", true);
+    }
+
+    #[test]
+    fn validation_failed() {
         dotest("1234512345", false);
-        dotest("1293", false);
         dotest("X123456788", false);
+    }
+
+    #[test]
+    fn last_char_is_not_digit_or_x() {
         dotest("ABCDEFGHIJ", false);
-        dotest("XXXXXXXXXX", false);
         dotest("123456789T", false);
+    }
+
+    #[test]
+    fn wrong_input_length() {
+        dotest("1293", false);
+    }
+
+    #[test]
+    fn first_nine_chartacter_is_not_0_to_9() {
+        dotest("XXXXXXXXXX", false);
     }
 }
