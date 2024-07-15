@@ -1,15 +1,10 @@
 fn max_sequence(seq: &[i32]) -> i32 {
     let mut max = 0;
-    let mut sum = 0;
-
-    for v in seq {
-        sum += v;
-
-        if sum < 0 { sum = 0; }
-        
-        max = if sum > max { sum } else { max };
-    }
-
+    seq.iter().fold(0, |prev, &v| {
+        let prev = v.max(prev + v);
+        max = max.max(prev);
+        prev
+    });
     max
 }
 
