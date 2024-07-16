@@ -8,6 +8,7 @@ pub mod magnet_particules_boxes;
 pub mod max_sub_array;
 pub mod missing_term;
 pub mod pagination_helpers;
+pub mod product_of_fib;
 pub mod rect_to_square;
 pub mod reverse_or_rotate;
 pub mod unique_order;
