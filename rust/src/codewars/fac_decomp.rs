@@ -1,53 +1,33 @@
-use std::collections::HashMap;
-
 fn decomp(n: i32) -> String {
-    let mut hash = HashMap::<i32, i32>::new();
+    let mut primes = vec![];
+    let mut counts = vec![];
 
     for i in 2..=n {
-        let factors = prime_factors(i as u64);
-        for p in factors {
-            match hash.get(&(p as i32)) {
-                None => hash.insert(p as i32, 1),
-                Some(x) => hash.insert(p as i32, x + 1),
-            };
+        let mut x = i;
+        for (j, prime) in primes.iter().enumerate() {
+            while x % prime == 0 {
+                counts[j] += 1;
+                x /= prime;
+            }
+        }
+        if x > 1 {
+            primes.push(x);
+            counts.push(1);
         }
     }
 
-    let mut keys = hash.keys().collect::<Vec<_>>();
-    keys.sort();
-
-    let mut result: Vec<String> = vec![];
-
-    for &k in keys.iter() {
-        let v = *hash.get(k).unwrap();
-        if v == 1 {
-            result.push(format!("{k}"));
-        } else {
-            result.push(format!("{k}^{v}"));
-        }
-    }
-
-    result.join(" * ")
-}
-
-fn prime_factors(mut n: u64) -> Vec<u64> {
-    let mut i = 2;
-    let mut factors = vec![];
-    while i * i <= n {
-        if n % i != 0 {
-            i += 1;
-        } else {
-            n /= i;
-            let mut primes = prime_factors(i);
-            factors.append(&mut primes);
-        }
-    }
-
-    if n > 1 {
-        factors.push(n);
-    }
-
-    factors
+    primes
+        .iter()
+        .zip(counts.iter())
+        .map(|(&prime, &count)| {
+            if count == 1 {
+                format!("{prime}")
+            } else {
+                format!("{prime}^{count}")
+            }
+        })
+        .collect::<Vec<_>>()
+        .join(" * ")
 }
 
 #[cfg(test)]
