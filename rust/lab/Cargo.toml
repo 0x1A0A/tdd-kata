@@ -1,0 +1,8 @@
+[package]
+name = "lab"
+version = "0.1.0"
+edition = "2021"
+description = "this is my experiment lab"
+
+[dependencies]
+num = { workspace = true }
