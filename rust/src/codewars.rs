@@ -5,6 +5,7 @@ pub mod good_evil;
 pub mod ip_validation;
 pub mod isbn10;
 pub mod magnet_particules_boxes;
+pub mod matrix_fibo;
 pub mod max_sub_array;
 pub mod missing_term;
 pub mod pagination_helpers;
