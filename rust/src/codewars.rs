@@ -2,6 +2,7 @@ pub mod convert_to_camel;
 pub mod direction_reduce;
 pub mod fac_decomp;
 pub mod good_evil;
+pub mod integer_partition;
 pub mod ip_validation;
 pub mod isbn10;
 pub mod magnet_particules_boxes;
