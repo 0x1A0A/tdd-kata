@@ -1,11 +1,5 @@
 fn solution(arr: &[u64]) -> u128 {
-    let size = arr.len();
-    let mut result = arr[0] as u128;
-    for &i in &arr[1..] {
-        result = gcd(result, i as u128);
-    }
-
-    result * size as u128
+    arr.len() as u128 * arr.iter().map(|&v| v as u128).fold(0, gcd)
 }
 
 fn gcd(a: u128, b: u128) -> u128 {
