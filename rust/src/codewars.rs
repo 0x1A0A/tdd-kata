@@ -16,3 +16,4 @@ pub mod rect_to_square;
 pub mod reverse_or_rotate;
 pub mod sort_binary_tree_by_level;
 pub mod unique_order;
+pub mod smallest_possible_sum;
