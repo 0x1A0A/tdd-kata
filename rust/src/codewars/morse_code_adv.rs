@@ -78,14 +78,7 @@ pub fn decode_morse(encoded: &str) -> String {
         .split("   ")
         .map(|word| {
             word.split(" ")
-                .into_iter()
-                .map(|x| {
-                    if let Some(&v) = morse.get(x) {
-                        v.to_string()
-                    } else {
-                        " ".to_string()
-                    }
-                })
+                .filter_map(|x| morse.get(x).map(|&v| v))
                 .collect::<String>()
         })
         .collect::<Vec<_>>()
