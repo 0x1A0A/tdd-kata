@@ -25,43 +25,13 @@ pub fn decode_bits(encoded: &str) -> String {
 
     encoded
         .chars()
-        .collect::<Vec<_>>()
-        .chunks(freq as usize)
-        .map(|x| x[0])
-        .fold(Vec::new(), |mut acc, v| {
-            if acc.is_empty() {
-                acc.push((v, 1));
-            } else {
-                if let Some(data) = acc.last_mut() {
-                    if data.0.eq(&v) {
-                        data.1 += 1;
-                    } else {
-                        acc.push((v, 1));
-                    }
-                }
-            }
-            acc
-        })
-        .into_iter()
-        .filter(|x| x.ne(&('0', 1)))
-        .map(|x| match x {
-            ('1', x) => {
-                if x == 3 {
-                    "-"
-                } else {
-                    "."
-                }
-            }
-            (_, x) => {
-                if x == 3 {
-                    " "
-                } else {
-                    "   "
-                }
-            }
-        })
-        .collect::<Vec<_>>()
-        .join("")
+        .step_by(freq as usize)
+        .collect::<String>()
+        .replace("111", "-")
+        .replace("1", ".")
+        .replace("0000000", "   ")
+        .replace("000", " ")
+        .replace("0", "")
 }
 
 pub fn decode_morse(encoded: &str) -> String {
@@ -105,18 +75,19 @@ pub fn decode_morse(encoded: &str) -> String {
     ]);
 
     encoded
-        .split(" ")
-        .into_iter()
-        .map(|x| {
-            if let Some(&v) = morse.get(x) {
-                v.to_string()
-            } else {
-                " ".to_string()
-            }
+        .split("   ")
+        .map(|word| {
+            word.split(" ")
+                .into_iter()
+                .map(|x| {
+                    if let Some(&v) = morse.get(x) {
+                        v.to_string()
+                    } else {
+                        " ".to_string()
+                    }
+                })
+                .collect::<String>()
         })
-        .collect::<Vec<_>>()
-        .join("")
-        .split_whitespace()
         .collect::<Vec<_>>()
         .join(" ")
 }
