@@ -1,3 +1,4 @@
+pub mod alpha_diagram;
 pub mod convert_to_camel;
 pub mod direction_reduce;
 pub mod fac_decomp;
