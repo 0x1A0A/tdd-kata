@@ -11,6 +11,7 @@ pub mod matrix_det;
 pub mod matrix_fibo;
 pub mod max_sub_array;
 pub mod missing_term;
+pub mod morse_code_adv;
 pub mod pagination_helpers;
 pub mod product_of_fib;
 pub mod rect_to_square;
