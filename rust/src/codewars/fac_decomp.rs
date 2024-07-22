@@ -35,13 +35,8 @@ mod tests {
     use super::*;
 
     fn dotest(n: i32, exp: &str) -> () {
-        println!("n:{:?}", n);
         let ans = decomp(n);
-        println!("actual: {:?}", ans);
-        println!("expect: {:?}", exp.to_string());
-        println!("{}", ans == exp.to_string());
         assert_eq!(ans, exp.to_string());
-        println!("{}", "-");
     }
 
     #[test]
