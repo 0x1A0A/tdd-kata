@@ -20,3 +20,4 @@ pub mod smallest_possible_sum;
 pub mod sort_binary_tree_by_level;
 pub mod spiral;
 pub mod unique_order;
+pub mod infix_to_postfix;
