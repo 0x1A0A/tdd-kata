@@ -1,8 +1,17 @@
 use std::collections::HashMap;
 
-fn to_postfix(infix: &str) -> String {
-    let precedence = HashMap::from([('+', 2), ('-', 2), ('*', 1), ('/', 1), ('^', 0)]);
+use num::{Integer, Zero};
 
+fn ops_precedence(c: char) -> i32 {
+    match c {
+        '+' | '-' => 1,
+        '*' | '/' => 2,
+        '^' => 3,
+        _ => 0,
+    }
+}
+
+fn to_postfix(infix: &str) -> String {
     let mut stack = vec![];
     let mut postfix = "".to_owned();
 
@@ -18,54 +27,39 @@ fn to_postfix(infix: &str) -> String {
         }
 
         if s == ')' {
-            loop {
-                match stack.pop() {
-                    None | Some('(') => break,
-                    Some(x) => postfix.push(x),
+            while let Some(last) = stack.pop() {
+                match last {
+                    '(' => break,
+                    x => postfix.push(x),
                 }
             }
             continue;
         }
 
-        let now = precedence.get(&s).unwrap();
+        let now = ops_precedence(s);
 
-        loop {
-            let last = stack.last();
+        while let Some(last) = stack.last() {
+            let last = ops_precedence(*last);
 
-            if last.is_none() {
+            if last.is_zero() {
                 break;
             }
 
-            let last = last.unwrap();
-
-            if last == &'(' {
+            if last.lt(&now) {
                 break;
             }
 
-            let last = precedence.get(last).unwrap();
-
-            if *last == 0 && *now == 0 {
+            if last.eq(&now) && s.eq(&'^') {
                 break;
             }
 
-            if last > now {
-                break;
-            }
-
-            let last = stack.pop().unwrap();
-            postfix.push(last);
+            postfix.push(stack.pop().unwrap());
         }
 
         stack.push(s);
     }
 
-    loop {
-        if let Some(c) = stack.pop() {
-            postfix.push(c);
-        } else {
-            break;
-        }
-    }
+    postfix.extend(stack.iter().rev());
 
     postfix
 }
@@ -82,11 +76,25 @@ mod tests {
     }
 
     #[test]
-    fn fixed_tests() {
+    fn simple_precedence() {
         do_test(&to_postfix("2+7*5"), "275*+");
+    }
+
+    #[test]
+    fn add_and_multiplication() {
+        do_test(&to_postfix("3*7+1)"), "37*1+");
+        do_test(&to_postfix("3*7+7/7)"), "37*77/+");
+    }
+
+    #[test]
+    fn bracket() {
         do_test(&to_postfix("3*3/(7+1)"), "33*71+/");
         do_test(&to_postfix("5+(6-2)*9+3^(7-1)"), "562-9*+371-^+");
         do_test(&to_postfix("(5-4-1)+9/5/2-7/1/7"), "54-1-95/2/+71/7/-");
+    }
+
+    #[test]
+    fn exponential() {
         do_test(&to_postfix("1^2^3"), "123^^");
     }
 }
