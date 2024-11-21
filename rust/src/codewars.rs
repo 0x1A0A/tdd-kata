@@ -1,4 +1,5 @@
 pub mod alpha_diagram;
+pub mod closest_pairs;
 pub mod convert_to_camel;
 pub mod direction_reduce;
 pub mod fac_decomp;
