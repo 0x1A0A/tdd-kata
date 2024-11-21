@@ -1,6 +1,4 @@
-use std::collections::HashMap;
-
-use num::{Integer, Zero};
+use num::Zero;
 
 fn ops_precedence(c: char) -> i32 {
     match c {
