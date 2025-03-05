@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       AdventOfCode.Y2015.Day01
+      AdventOfCode.Y2015.Day02
   other-modules:
       Paths_haskell
   autogen-modules:
@@ -59,6 +60,7 @@ test-suite spec
   main-is: Spec.hs
   other-modules:
       AdventOfCode.Y2015.Test01Spec
+      AdventOfCode.Y2015.Test02Spec
       Paths_haskell
   autogen-modules:
       Paths_haskell
