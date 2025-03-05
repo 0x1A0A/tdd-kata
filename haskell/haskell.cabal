@@ -42,6 +42,7 @@ executable day12024
   main-is: Main.hs
   other-modules:
       AdventOfCode.Y2015.Day01Runner
+      AdventOfCode.Y2015.Day02Runner
       AdventOfCode.Y2015.Runner
       AdventOfCode.Year
       Paths_haskell
