@@ -1,8 +1,9 @@
 module Main (main) where
-import AdventOfCode.Y2024.Day01 (resolver)
-import Text.Printf (printf)
+import AdventOfCode.Year (selector)
 
 main :: IO ()
 main = do
   line <- getLine
-  putStrLn (printf "total %d" (resolver line))
+  let w = words line
+  print w
+  selector w
