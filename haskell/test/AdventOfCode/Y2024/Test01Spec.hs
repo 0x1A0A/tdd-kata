@@ -2,7 +2,6 @@ module AdventOfCode.Y2024.Test01Spec (spec) where
 
 import Test.Hspec
 import AdventOfCode.Y2024.Day01 (resolver)
-import System.IO (readFile)
 
 spec :: Spec
 spec = describe "Advent of code 2024 day 1" $ do
