@@ -25,8 +25,8 @@ source-repository head
 
 library
   exposed-modules:
-      AdventOfCode.Y2024.Day01
-      AdventOfCode.Y2024.Day02
+      AdventOfCode.Y2015.Day01
+      AdventOfCode.Y2015.Day02
   other-modules:
       Paths_haskell
   autogen-modules:
@@ -42,7 +42,7 @@ executable day12024
   main-is: Main.hs
   other-modules:
       AdventOfCode.Y2015.Day01Runner
-      AdventOfCode.Y2015.Day02
+      AdventOfCode.Y2015.Day02Runner
       AdventOfCode.Y2015.Runner
       AdventOfCode.Year
       Paths_haskell
@@ -60,8 +60,8 @@ test-suite spec
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      AdventOfCode.Y2024.Test01Spec
-      AdventOfCode.Y2024.Test02Spec
+      AdventOfCode.Y2015.Test01Spec
+      AdventOfCode.Y2015.Test02Spec
       Paths_haskell
   autogen-modules:
       Paths_haskell

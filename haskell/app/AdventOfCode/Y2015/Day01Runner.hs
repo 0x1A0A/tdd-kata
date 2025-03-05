@@ -1,6 +1,6 @@
 module AdventOfCode.Y2015.Day01Runner (run) where
 
-import AdventOfCode.Y2024.Day01 (resolver)
+import AdventOfCode.Y2015.Day01 (resolver)
 import Text.Printf (printf)
 
 run :: IO ()

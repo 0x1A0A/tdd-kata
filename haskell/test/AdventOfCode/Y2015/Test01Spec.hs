@@ -1,7 +1,7 @@
-module AdventOfCode.Y2024.Test01Spec (spec) where
+module AdventOfCode.Y2015.Test01Spec (spec) where
 
 import Test.Hspec
-import AdventOfCode.Y2024.Day01 (resolver)
+import AdventOfCode.Y2015.Day01 (resolver)
 
 spec :: Spec
 spec = describe "Advent of code 2024 day 1" $ do

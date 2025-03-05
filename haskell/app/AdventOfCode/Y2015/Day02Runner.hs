@@ -1,6 +1,6 @@
-module AdventOfCode.Y2015.Day02 (run) where
+module AdventOfCode.Y2015.Day02Runner (run) where
 
-import AdventOfCode.Y2024.Day02 (resolver)
+import AdventOfCode.Y2015.Day02 (resolver)
 
 import Text.Printf (printf)
 

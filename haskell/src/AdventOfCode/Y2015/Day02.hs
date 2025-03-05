@@ -1,5 +1,5 @@
-module AdventOfCode.Y2024.Day02 (resolver) where
-import AdventOfCode.Y2024.Day01 (value)
+module AdventOfCode.Y2015.Day02 (resolver) where
+import AdventOfCode.Y2015.Day01 (value)
 
 resolver :: String -> Int
 resolver s = solution 0 0 (map value s)
