@@ -1,4 +1,4 @@
-module AdventOfCode.Y2015.Day02 (part1, parse_input) where
+module AdventOfCode.Y2015.Day02 (part1, part2, parse_input) where
 
 import Data.List (sort, subsequences)
 
@@ -8,6 +8,12 @@ part1 d = surface + slack
     areas = faces_area d
     surface = 2 * sum areas
     slack = sum (take 1 (sort areas))
+
+part2 :: (Int, Int, Int) -> Int
+part2 (l, w, h) = ribbon + bow
+  where
+    ribbon = 2 * (sum $ take 2 $ sort [l, w, h])
+    bow = l * w * h
 
 faces_area :: (Int, Int, Int) -> [Int]
 faces_area (l, w, h) = map area $ combine 2 [l, w, h]
