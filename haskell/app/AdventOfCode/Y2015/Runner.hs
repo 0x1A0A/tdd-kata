@@ -13,4 +13,5 @@ runner ("2-2" : _) = Day02.run2
 runner ("3-1" : _) = Day03.run1
 runner ("3-2" : _) = Day03.run2
 runner ("4-1" : _) = Day04.run1
+runner ("4-2" : _) = Day04.run2
 runner _ = putStrLn "Solution not presented"
