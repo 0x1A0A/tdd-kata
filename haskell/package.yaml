@@ -35,7 +35,11 @@ ghc-options:
 
 library:
   source-dirs: src
-  dependencies: containers
+  dependencies:
+    - containers
+    - cryptohash-md5
+    - bytestring
+    - base16-bytestring
 
 tests:
   spec:
