@@ -5,7 +5,7 @@ import Test.Hspec
 import AdventOfCode.Y2015.Day03 (part1, part2)
 
 spec :: Spec
-spec = describe "Advent of code 2024 day 3" $ do
+spec = describe "Advent of code 2015 day 3" $ do
     describe "part 1" $ do
         it "if santa don't need to walk" $ do
             part1 "" `shouldBe` (1 :: Int)
