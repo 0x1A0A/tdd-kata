@@ -29,6 +29,7 @@ library
       AdventOfCode.Y2015.Day02
       AdventOfCode.Y2015.Day03
       AdventOfCode.Y2015.Day04
+      AdventOfCode.Y2015.Day05
   other-modules:
       Paths_haskell
   autogen-modules:
@@ -72,6 +73,7 @@ test-suite spec
       AdventOfCode.Y2015.Test02Spec
       AdventOfCode.Y2015.Test03Spec
       AdventOfCode.Y2015.Test04Spec
+      AdventOfCode.Y2015.Test05Spec
       Paths_haskell
   autogen-modules:
       Paths_haskell
