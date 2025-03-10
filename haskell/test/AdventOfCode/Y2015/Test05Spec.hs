@@ -1,6 +1,6 @@
 module AdventOfCode.Y2015.Test05Spec (spec) where
 
-import AdventOfCode.Y2015.Day05 (niceString)
+import AdventOfCode.Y2015.Day05 (niceString, notNaughtyString)
 import Test.Hspec
 
 spec :: Spec
@@ -17,3 +17,7 @@ spec = describe "Advent of code 2015 day 5" $ do
             niceString "haegwjzuvuyypxyu" `shouldBe` (Nothing)
         it "has no double letter" $ do
             niceString "jchzalrnumimnmhp" `shouldBe` (Nothing)
+    describe "part2" $ do
+        it "should check has double pair and repeated letter" $ do
+            notNaughtyString "xxyxx" `shouldBe` (Just True)
+            notNaughtyString "qjhvhtzxzqqjkmpb" `shouldBe` (Just True)

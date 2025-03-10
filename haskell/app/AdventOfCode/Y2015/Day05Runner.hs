@@ -1,15 +1,14 @@
 module AdventOfCode.Y2015.Day05Runner (run1, run2) where
 
-import AdventOfCode.Y2015.Day05 (niceString)
+import AdventOfCode.Y2015.Day05 (niceString, notNaughtyString)
 import Data.Maybe (isJust)
 
 run1 :: IO ()
 run1 = do
-    line <- readFile "input.csv"
-    putStrLn (show $ length $ words line)
-    putStrLn (show $ length $ filter isJust (map niceString $ words line))
+    lines <- readFile "input.csv"
+    putStrLn (show $ length $ filter isJust (map niceString $ words lines))
 
 run2 :: IO ()
 run2 = do
-    line <- readFile "input.csv"
-    putStrLn "Part 2"
+    lines <- readFile "input.csv"
+    putStrLn (show $ length $ filter isJust (map notNaughtyString $ words lines))
