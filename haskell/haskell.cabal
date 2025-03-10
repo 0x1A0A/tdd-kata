@@ -52,6 +52,7 @@ executable day12024
       AdventOfCode.Y2015.Day02Runner
       AdventOfCode.Y2015.Day03Runner
       AdventOfCode.Y2015.Day04Runner
+      AdventOfCode.Y2015.Day05Runner
       AdventOfCode.Y2015.Runner
       AdventOfCode.Year
       Paths_haskell
