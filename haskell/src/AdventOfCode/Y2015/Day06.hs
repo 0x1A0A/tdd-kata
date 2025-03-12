@@ -1,4 +1,4 @@
-module AdventOfCode.Y2015.Day06 (applyInst, applyInsts, parseInst, Operation (..)) where
+module AdventOfCode.Y2015.Day06 (applyInst, applyInsts, parseInst, Operation (..), applyInstsPart2, applyInstPart2) where
 
 import Data.Array (Array, (!), (//))
 import Data.List (isPrefixOf)
@@ -21,9 +21,19 @@ applyInst g (OFF d) = updateGrid g d (const 0)
 applyInst g (TOGGLE d) = updateGrid g d (\x -> if x == 0 then 1 else 0)
 applyInst g INVALID = g
 
+applyInstPart2 :: Grid -> Operation -> Grid
+applyInstPart2 g (ON d) = updateGrid g d (1 +)
+applyInstPart2 g (OFF d) = updateGrid g d (\x -> if x == 0 then 0 else x - 1)
+applyInstPart2 g (TOGGLE d) = updateGrid g d (2 +)
+applyInstPart2 g INVALID = g
+
 applyInsts :: Grid -> [Operation] -> Grid
 applyInsts g [] = g
 applyInsts g (x : xs) = applyInsts (applyInst g x) xs
+
+applyInstsPart2 :: Grid -> [Operation] -> Grid
+applyInstsPart2 g [] = g
+applyInstsPart2 g (x : xs) = applyInstsPart2 (applyInstPart2 g x) xs
 
 updateGrid :: Grid -> FromTo -> (Int -> Int) -> Grid
 updateGrid g ((x1, y1), (x2, y2)) f = g // [((x, y), (f (g ! (x, y)))) | x <- [x1 .. x2], y <- [y1 .. y2]]
