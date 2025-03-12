@@ -40,11 +40,15 @@ library:
     - cryptohash-md5
     - bytestring
     - base16-bytestring
+    - split
+    - array
 
 tests:
   spec:
     defaults: hspec/hspec@main
-    dependencies: haskell
+    dependencies:
+      - haskell
+      - array
 
 executables:
   day12024:
@@ -52,3 +56,4 @@ executables:
     source-dirs: app
     dependencies:
       - haskell
+      - array
