@@ -31,6 +31,7 @@ library
       AdventOfCode.Y2015.Day04
       AdventOfCode.Y2015.Day05
       AdventOfCode.Y2015.Day06
+      AdventOfCode.Y2015.Day07
   other-modules:
       Paths_haskell
   autogen-modules:
@@ -57,6 +58,7 @@ executable day12024
       AdventOfCode.Y2015.Day04Runner
       AdventOfCode.Y2015.Day05Runner
       AdventOfCode.Y2015.Day06Runner
+      AdventOfCode.Y2015.Day07Runner
       AdventOfCode.Y2015.Runner
       AdventOfCode.Year
       Paths_haskell
@@ -81,6 +83,7 @@ test-suite spec
       AdventOfCode.Y2015.Test04Spec
       AdventOfCode.Y2015.Test05Spec
       AdventOfCode.Y2015.Test06Spec
+      AdventOfCode.Y2015.Test07Spec
       Paths_haskell
   autogen-modules:
       Paths_haskell

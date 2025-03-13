@@ -6,6 +6,7 @@ import AdventOfCode.Y2015.Day03Runner as Day03
 import AdventOfCode.Y2015.Day04Runner as Day04
 import AdventOfCode.Y2015.Day05Runner as Day05
 import AdventOfCode.Y2015.Day06Runner as Day06
+import AdventOfCode.Y2015.Day07Runner as Day07
 
 runner :: [String] -> IO ()
 runner ("1-1" : _) = Day01.run1
@@ -20,4 +21,6 @@ runner ("5-1" : _) = Day05.run1
 runner ("5-2" : _) = Day05.run2
 runner ("6-1" : _) = Day06.run1
 runner ("6-2" : _) = Day06.run2
+runner ("7-1" : _) = Day07.run1
+runner ("7-2" : _) = Day07.run2
 runner _ = putStrLn "Solution not presented"
