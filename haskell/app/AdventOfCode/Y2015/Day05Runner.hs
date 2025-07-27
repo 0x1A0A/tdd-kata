@@ -5,10 +5,10 @@ import Data.Maybe (isJust)
 
 run1 :: IO ()
 run1 = do
-    line <- readFile "input.csv"
-    putStrLn (show $ length $ filter isJust (map niceString $ words line))
+  line <- readFile "input.csv"
+  putStrLn (show $ length $ filter isJust (map niceString $ words line))
 
 run2 :: IO ()
 run2 = do
-    line <- readFile "input.csv"
-    putStrLn (show $ length $ filter isJust (map notNaughtyString $ words line))
+  line <- readFile "input.csv"
+  putStrLn (show $ length $ filter isJust (map notNaughtyString $ words line))

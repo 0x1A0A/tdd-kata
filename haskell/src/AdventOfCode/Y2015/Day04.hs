@@ -12,8 +12,8 @@ part2 s = mining s 0 (("000000" ==) . take 6)
 
 mining :: String -> Int -> (String -> Bool) -> Int
 mining s i f
-    | f hash_result = i
-    | otherwise = mining s (i + 1) f
+  | f hash_result = i
+  | otherwise = mining s (i + 1) f
   where
     hash_result = hash (s ++ show i)
 

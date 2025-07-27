@@ -5,15 +5,18 @@ import Data.List (isPrefixOf)
 import Data.List.Split (splitOn)
 
 type Grid = Array (Int, Int) Int
+
 type Pair = (Int, Int)
+
 type FromTo = (Pair, Pair)
+
 data Operation
-    = ON FromTo
-    | OFF FromTo
-    | TOGGLE FromTo
-    | INVALID
-    deriving
-        (Show, Eq)
+  = ON FromTo
+  | OFF FromTo
+  | TOGGLE FromTo
+  | INVALID
+  deriving
+    (Show, Eq)
 
 applyInst :: Grid -> Operation -> Grid
 applyInst g (ON d) = updateGrid g d (const 1)
@@ -40,10 +43,10 @@ updateGrid g ((x1, y1), (x2, y2)) f = g // [((x, y), (f (g ! (x, y)))) | x <- [x
 
 parseInst :: String -> Operation
 parseInst s
-    | isPrefixOf "turn on" s = ON (parse (insts !! 2) (insts !! 4))
-    | isPrefixOf "turn off" s = OFF (parse (insts !! 2) (insts !! 4))
-    | isPrefixOf "toggle" s = TOGGLE (parse (insts !! 1) (insts !! 3))
-    | otherwise = INVALID
+  | isPrefixOf "turn on" s = ON (parse (insts !! 2) (insts !! 4))
+  | isPrefixOf "turn off" s = OFF (parse (insts !! 2) (insts !! 4))
+  | isPrefixOf "toggle" s = TOGGLE (parse (insts !! 1) (insts !! 3))
+  | otherwise = INVALID
   where
     insts = words s
     parse a b = (parseCoords a, parseCoords b)

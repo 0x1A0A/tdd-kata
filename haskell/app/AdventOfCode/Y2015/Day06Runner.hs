@@ -5,14 +5,14 @@ import qualified Data.Array as Array
 
 run1 :: IO ()
 run1 = do
-    line <- readFile "input.csv"
-    let insts = map parseInst $ lines line
-    let emptyGrid = Array.listArray ((0, 0), (999, 999)) $ repeat 0
-    putStrLn (show $ length $ filter (1 ==) (Array.elems $ applyInsts emptyGrid insts))
+  line <- readFile "input.csv"
+  let insts = map parseInst $ lines line
+  let emptyGrid = Array.listArray ((0, 0), (999, 999)) $ repeat 0
+  putStrLn (show $ length $ filter (1 ==) (Array.elems $ applyInsts emptyGrid insts))
 
 run2 :: IO ()
 run2 = do
-    line <- readFile "input.csv"
-    let insts = map parseInst $ lines line
-    let emptyGrid = Array.listArray ((0, 0), (999, 999)) $ repeat 0
-    putStrLn (show $ foldl (+) 0 (Array.elems $ applyInstsPart2 emptyGrid insts))
+  line <- readFile "input.csv"
+  let insts = map parseInst $ lines line
+  let emptyGrid = Array.listArray ((0, 0), (999, 999)) $ repeat 0
+  putStrLn (show $ foldl (+) 0 (Array.elems $ applyInstsPart2 emptyGrid insts))

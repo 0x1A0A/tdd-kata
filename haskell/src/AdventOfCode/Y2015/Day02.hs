@@ -27,5 +27,5 @@ combine n a = filter ((n ==) . length) $ subsequences a
 
 parse_input :: String -> (Int, Int, Int)
 parse_input s = case map read $ words [if c == 'x' then ' ' else c | c <- s] of
-    [l, w, h] -> (l, w, h)
-    _ -> (0, 0, 0)
+  [l, w, h] -> (l, w, h)
+  _ -> (0, 0, 0)

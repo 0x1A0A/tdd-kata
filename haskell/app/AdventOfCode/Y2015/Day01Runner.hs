@@ -5,10 +5,10 @@ import Text.Printf (printf)
 
 run1 :: IO ()
 run1 = do
-    line <- readFile "input.csv"
-    putStrLn (printf "total %d" (part1 line))
+  line <- readFile "input.csv"
+  putStrLn (printf "total %d" (part1 line))
 
 run2 :: IO ()
 run2 = do
-    line <- readFile "input.csv"
-    putStrLn (printf "total %d" (part2 line))
+  line <- readFile "input.csv"
+  putStrLn (printf "total %d" (part2 line))
